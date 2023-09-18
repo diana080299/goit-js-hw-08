@@ -12,9 +12,9 @@ const player = new Player(iframe, {
 
 const getCurrentTime = function (currentTime) {
   const seconds = currentTime.seconds;
-  localStorage.setItem(TIME_KEY, JSON.stringify(seconds));
+  localStorage.setItem(TIME_KEY, seconds);
 };
 
 player.on('timeupdate', throttle(getCurrentTime, 1000));
 
-player.setCurrentTime(JSON.parse(localStorage.getItem(TIME_KEY)) || 0);
+player.setCurrentTime(localStorage.getItem(TIME_KEY) || 0);
